@@ -1,6 +1,6 @@
 # MAD User-Service - Proof of Concept
 
-Dieser Service wurde als **Proof of Concept** für die **Maximal Agentic Decomposition (MAD)** Methode erstellt, wie im Blog-Artikel ["Warum gute Entwickler mit AI besser werden"](https://jwiegmann.de/blog/warum-gute-entwickler-mit-ai-besser-werden) beschrieben.
+Dieser Service wurde als lightweight **Proof of Concept** für die **Maximal Agentic Decomposition (MAD)** Methode erstellt, wie im Blog-Artikel ["Warum gute Entwickler mit AI besser werden"](https://jwiegmann.de/blog/warum-gute-entwickler-mit-ai-besser-werden) beschrieben.
 
 ## Ziel
 
@@ -139,23 +139,6 @@ Siehe [`CONTEXT.md`](./CONTEXT.md) für den vollständigen Projektkontext.
           ↓
       Tests + Manueller Test
 ```
-
----
-
-## Erfolgskriterien
-
-- [ ] Alle CRUD-Operationen funktionieren
-- [ ] Validierung greift bei ungültigen Requests
-- [ ] Fehlerbehandlung liefert strukturierte Responses
-- [ ] Code entspricht den Output Requirements
-- [ ] Keine Red Flags während der Implementierung
-- [ ] Voting-Entscheidungen dokumentiert
-
----
-
-## Erkenntnisse aus dem PoC
-
-_[Wird nach Abschluss dokumentiert: Was hat funktioniert? Wo musste nachgebessert werden? Welche Red Flags sind aufgetreten?]_
 
 ---
 
