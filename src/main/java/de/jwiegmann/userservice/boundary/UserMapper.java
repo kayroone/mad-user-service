@@ -6,23 +6,32 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserMapper {
 
-    public UserDTO toDto(User user) {
+    public UserResponse toResponse(User user) {
         if (user == null) return null;
-        UserDTO dto = new UserDTO();
-        dto.setId(user.getId());
-        dto.setEmail(user.getEmail());
-        dto.setFirstName(user.getFirstName());
-        dto.setLastName(user.getLastName());
-        dto.setCreatedAt(user.getCreatedAt());
-        return dto;
+        UserResponse response = new UserResponse();
+        response.setId(user.getId());
+        response.setEmail(user.getEmail());
+        response.setFirstName(user.getFirstName());
+        response.setLastName(user.getLastName());
+        response.setCreatedAt(user.getCreatedAt());
+        return response;
     }
 
-    public User toEntity(UserDTO dto) {
-        if (dto == null) return null;
+    public User toEntity(CreateUserRequest request) {
+        if (request == null) return null;
         User user = new User();
-        user.setEmail(dto.getEmail());
-        user.setFirstName(dto.getFirstName());
-        user.setLastName(dto.getLastName());
+        user.setEmail(request.getEmail());
+        user.setFirstName(request.getFirstName());
+        user.setLastName(request.getLastName());
+        return user;
+    }
+
+    public User toEntity(UpdateUserRequest request) {
+        if (request == null) return null;
+        User user = new User();
+        user.setEmail(request.getEmail());
+        user.setFirstName(request.getFirstName());
+        user.setLastName(request.getLastName());
         return user;
     }
 }

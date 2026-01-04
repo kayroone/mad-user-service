@@ -103,15 +103,18 @@ Siehe [`CONTEXT.md`](./CONTEXT.md) für den vollständigen Projektkontext.
 
 ### 1. Exception-Handling Strategie
 - **Frage:** Wie strukturieren wir Error-Responses?
-- **Entscheidung:** _[wird dokumentiert]_
+- **Entscheidung:** **Einheitliches ErrorDTO** mit timestamp, status, message, path
+- **Begründung:** Konsistente API-Responses erleichtern Client-Implementierung
 
 ### 2. DTO-Design
 - **Frage:** Separate DTOs für Request/Response?
-- **Entscheidung:** _[wird dokumentiert]_
+- **Entscheidung:** **Separate DTOs** (CreateUserRequest, UpdateUserRequest, UserResponse)
+- **Begründung:** Explizit, welche Felder bei Create/Update erwartet werden vs. Response
 
 ### 3. Mapper-Implementierung
 - **Frage:** Statische oder Instance-Methoden?
-- **Entscheidung:** _[wird dokumentiert]_
+- **Entscheidung:** **Instance-Methoden** mit @Component
+- **Begründung:** Testbar mit Mocking, Spring-konform
 
 ---
 

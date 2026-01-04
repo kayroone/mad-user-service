@@ -1,9 +1,0 @@
-de/jwiegmann/userservice/entity/User.class
-de/jwiegmann/userservice/entity/UserRepository.class
-de/jwiegmann/userservice/boundary/UserDTO.class
-de/jwiegmann/userservice/boundary/UserController.class
-de/jwiegmann/userservice/control/UserServiceImpl.class
-de/jwiegmann/userservice/boundary/UserMapper.class
-de/jwiegmann/userservice/control/UserService.class
-de/jwiegmann/userservice/UserServiceApplication.class
-de/jwiegmann/userservice/boundary/GlobalExceptionHandler.class

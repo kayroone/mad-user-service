@@ -1,9 +1,0 @@
-/Users/jan.wiegmann/IdeaProjects/mad-user-service/src/main/java/de/jwiegmann/userservice/boundary/UserDTO.java
-/Users/jan.wiegmann/IdeaProjects/mad-user-service/src/main/java/de/jwiegmann/userservice/control/UserServiceImpl.java
-/Users/jan.wiegmann/IdeaProjects/mad-user-service/src/main/java/de/jwiegmann/userservice/entity/UserRepository.java
-/Users/jan.wiegmann/IdeaProjects/mad-user-service/src/main/java/de/jwiegmann/userservice/boundary/UserMapper.java
-/Users/jan.wiegmann/IdeaProjects/mad-user-service/src/main/java/de/jwiegmann/userservice/entity/User.java
-/Users/jan.wiegmann/IdeaProjects/mad-user-service/src/main/java/de/jwiegmann/userservice/boundary/GlobalExceptionHandler.java
-/Users/jan.wiegmann/IdeaProjects/mad-user-service/src/main/java/de/jwiegmann/userservice/control/UserService.java
-/Users/jan.wiegmann/IdeaProjects/mad-user-service/src/main/java/de/jwiegmann/userservice/boundary/UserController.java
-/Users/jan.wiegmann/IdeaProjects/mad-user-service/src/main/java/de/jwiegmann/userservice/UserServiceApplication.java

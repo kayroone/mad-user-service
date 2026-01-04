@@ -40,7 +40,8 @@ class UserControllerTest {
     private UserMapper userMapper;
 
     private User testUser;
-    private UserDTO testDTO;
+    private CreateUserRequest createRequest;
+    private UserResponse userResponse;
 
     @BeforeEach
     void setUp() {
@@ -50,45 +51,50 @@ class UserControllerTest {
         testUser.setFirstName("Test");
         testUser.setLastName("User");
 
-        testDTO = new UserDTO();
-        testDTO.setId(1L);
-        testDTO.setEmail("test@example.com");
-        testDTO.setFirstName("Test");
-        testDTO.setLastName("User");
+        createRequest = new CreateUserRequest();
+        createRequest.setEmail("test@example.com");
+        createRequest.setFirstName("Test");
+        createRequest.setLastName("User");
+
+        userResponse = new UserResponse();
+        userResponse.setId(1L);
+        userResponse.setEmail("test@example.com");
+        userResponse.setFirstName("Test");
+        userResponse.setLastName("User");
     }
 
     @Nested
     class CreateUser {
         @Test
         void shouldCreateUser_whenValidRequest() throws Exception {
-            when(userMapper.toEntity(any(UserDTO.class))).thenReturn(testUser);
+            when(userMapper.toEntity(any(CreateUserRequest.class))).thenReturn(testUser);
             when(userService.create(any(User.class))).thenReturn(testUser);
-            when(userMapper.toDto(any(User.class))).thenReturn(testDTO);
+            when(userMapper.toResponse(any(User.class))).thenReturn(userResponse);
 
             mockMvc.perform(post("/api/users")
                             .contentType(MediaType.APPLICATION_JSON)
-                            .content(objectMapper.writeValueAsString(testDTO)))
+                            .content(objectMapper.writeValueAsString(createRequest)))
                     .andExpect(status().isCreated())
                     .andExpect(jsonPath("$.email").value("test@example.com"));
         }
 
         @Test
         void shouldReturnBadRequest_whenInvalidEmail() throws Exception {
-            testDTO.setEmail("invalid-email");
+            createRequest.setEmail("invalid-email");
 
             mockMvc.perform(post("/api/users")
                             .contentType(MediaType.APPLICATION_JSON)
-                            .content(objectMapper.writeValueAsString(testDTO)))
+                            .content(objectMapper.writeValueAsString(createRequest)))
                     .andExpect(status().isBadRequest());
         }
 
         @Test
         void shouldReturnBadRequest_whenMissingFirstName() throws Exception {
-            testDTO.setFirstName("");
+            createRequest.setFirstName("");
 
             mockMvc.perform(post("/api/users")
                             .contentType(MediaType.APPLICATION_JSON)
-                            .content(objectMapper.writeValueAsString(testDTO)))
+                            .content(objectMapper.writeValueAsString(createRequest)))
                     .andExpect(status().isBadRequest());
         }
     }
@@ -98,7 +104,7 @@ class UserControllerTest {
         @Test
         void shouldReturnUser_whenUserExists() throws Exception {
             when(userService.findById(1L)).thenReturn(Optional.of(testUser));
-            when(userMapper.toDto(testUser)).thenReturn(testDTO);
+            when(userMapper.toResponse(testUser)).thenReturn(userResponse);
 
             mockMvc.perform(get("/api/users/1"))
                     .andExpect(status().isOk())
@@ -119,7 +125,7 @@ class UserControllerTest {
         @Test
         void shouldReturnAllUsers() throws Exception {
             when(userService.findAll()).thenReturn(List.of(testUser));
-            when(userMapper.toDto(testUser)).thenReturn(testDTO);
+            when(userMapper.toResponse(testUser)).thenReturn(userResponse);
 
             mockMvc.perform(get("/api/users"))
                     .andExpect(status().isOk())
